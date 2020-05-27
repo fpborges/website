@@ -21,7 +21,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
     #header-component{
         background-color: black;
         color: white;
