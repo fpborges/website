@@ -2,7 +2,7 @@
   <div id="app">
     <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
     <app-header words="This is a prop testing!" v-bind:title="title" />
-    <app-menu v-bind:menuText="textoMenu" />
+    <app-menu />
 
     <!--dynamic component -->
     <!-- <keep-alive>
@@ -43,7 +43,6 @@ export default {
       ],
       title: "Fernando Web developer",
       msg: "Fernando Webpage update!!",
-      textoMenu: "menuText",
       component: "app-header"
 
     }
