@@ -5,7 +5,7 @@
             <li>Footer2</li>
             <li>Footer3</li>
         </ul>
-        <p>Copyright to Fernando Pereira Borges - 2020</p>
+        <p>{{ footerCopyright }} </p>
     </div>
 </template>
 
@@ -14,6 +14,12 @@ export default {
     name: "Footer",
     props:{
         footerText: String
+    
+    },
+    data(){
+        return{
+            footerCopyright: "Copyright to Fernando Pereira Borges - 2020"
+        }
     }
 }
 </script>

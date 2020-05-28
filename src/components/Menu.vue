@@ -1,12 +1,15 @@
 <template>
     <div id="menu-component">
         <h4>{{ menu_text }}</h4>
+        <p>{{ menuText }}</p>
+        <slot />
         <ul>
             <li>Menu1</li>
             <li>Menu2</li>
             <li>Menu3</li>
             <li>Menu4</li>
         </ul>
+  
     </div>
 </template>
 

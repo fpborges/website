@@ -8,6 +8,52 @@
         >vue-cli documentation</a
       >.
     </p>
+    <h4>List of games chars</h4>
+    <ul>
+      <li v-for="name in names_list" v-bind:key="name.id" v-on:click="name.show = !name.show">
+        <button>{{ name.firstName }}</button>
+        <p v-show="name.show" > {{ name.game }} </p>
+      </li>
+    </ul>
+    <button v-on:click="deleteName()">Delete names</button>
+
+    <form> 
+      <label>First Name</label>
+      <input type="text" v-model.lazy="firstName" required />
+      <label>Email</label>
+      <input type="email" v-model="email" required />
+      <label>Leave your message </label>
+      <textarea v-model.lazy="firstName"></textarea>
+      
+      <div id="checkboxes" style="margin-top:20px;">
+        <label>God of War
+        <input type="checkbox" value="God of War" v-model="games.categories" /></label>
+        <label>Spiderman
+        <input type="checkbox" value="Spiderman" v-model="games.categories" /></label>
+        <label>Resident Evil 2
+        <input type="checkbox" value="Resident Evil 2" v-model="games.categories" /></label>
+        <label>NBA 2K
+        <input type="checkbox" value="NBA 2K" v-model="games.categories" /></label>
+        <label>PES 2020
+        <input type="checkbox" value="PES 2020" v-model="games.categories" /></label>
+      </div>
+
+      <div id="selections">
+        <select v-model="games.charname">
+          <option v-for="name in gnames" v-bind:key="name.id">{{ name }}</option>
+        </select>
+      </div>
+    </form>
+
+    <p>{{ firstName }}</p>
+    <p>content: </p>
+    <p>{{ email }}</p>
+    <p>Blog categories</p>
+    <ul>
+      <li v-for="category in games.categories" v-bind:key="category.id">{{ category }}</li>
+    </ul>
+    <p>Character name: {{ games.charname }}</p>
+
     <h3>Installed CLI Plugins</h3>
     <ul>
       <li>
@@ -33,30 +79,6 @@
           rel="noopener"
           >eslint</a
         >
-      </li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li>
-        <a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a>
-      </li>
-      <li>
-        <a href="https://forum.vuejs.org" target="_blank" rel="noopener"
-          >Forum</a
-        >
-      </li>
-      <li>
-        <a href="https://chat.vuejs.org" target="_blank" rel="noopener"
-          >Community Chat</a
-        >
-      </li>
-      <li>
-        <a href="https://twitter.com/vuejs" target="_blank" rel="noopener"
-          >Twitter</a
-        >
-      </li>
-      <li>
-        <a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a>
       </li>
     </ul>
     <h3>Ecosystem</h3>
@@ -91,6 +113,7 @@
         >
       </li>
     </ul>
+    <hr>
   </div>
 </template>
 
@@ -98,8 +121,28 @@
 export default {
   name: "Home",
   props: {
-    msg: String
+    msg: String,
+    names_list: Array,
+    
+    
+  },
+  data(){
+    return{
+        firstName: "",
+        email:"",
+        games:{
+          categories:[],
+          charname: ""
+        },
+        gnames:['','Kratos', 'Parker','Leon', "Ai", 'Milan']
+    }
+  },
+  methods:{
+    deleteName: function(){
+      this.names_list.pop();
+    }
   }
+ 
 };
 </script>
 

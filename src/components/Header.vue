@@ -3,6 +3,7 @@
         <h1>Fernando Web Developer</h1>
         <p>{{ description }}</p>
         <p> {{ words }}</p>
+        <p>{{title}}</p>
     </div>    
 </template>
 
@@ -10,7 +11,8 @@
 export default {
     name: "Header",
     props:{
-        words: String
+        words: String,
+        title: String
     },
     data(){
         return{
