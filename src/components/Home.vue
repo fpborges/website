@@ -1,6 +1,9 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    
+    <h1 class="animate__animated animate__fadeInDown" v-if="isShow">An animated element</h1>
+    <button v-on:click="isShow =!isShow">Title to show</button>
     <p>
       For a guide and recipes on how to configure / customize this project,<br />
       check out the
@@ -8,6 +11,10 @@
         >vue-cli documentation</a
       >.
     </p>
+    <div v-if="calculate(4, 5) < 6">{{ calculate(4,5) }} you can see me </div>
+    <div v-else>
+      Now you don't
+    </div>
     <h4>List of games chars</h4>
     <ul>
       <li v-for="name in names_list" v-bind:key="name.id" v-on:click="name.show = !name.show">
@@ -122,9 +129,7 @@ export default {
   name: "Home",
   props: {
     msg: String,
-    names_list: Array,
-    
-    
+    names_list: Array
   },
   data(){
     return{
@@ -134,12 +139,18 @@ export default {
           categories:[],
           charname: ""
         },
-        gnames:['','Kratos', 'Parker','Leon', "Ai", 'Milan']
+        gnames:['','Kratos', 'Parker','Leon', "Ai", 'Milan'],
+        isShow: false
     }
   },
   methods:{
     deleteName: function(){
       this.names_list.pop();
+    },
+    calculate: function(a, b){
+      let c = 0;
+      c = a + b
+      return c
     }
   }
  
