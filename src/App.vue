@@ -13,7 +13,7 @@
     <!-- end of dynamic component -->
  
     <app-home v-bind:msg="msg" v-bind:names_list="names_list" />
-    <app-home />
+    <app-contact />
     <app-footer />
   </div>
 </template>
@@ -22,6 +22,7 @@
 import Header from "./components/Header.vue";
 import Menu from "./components/Menu.vue";
 import Home from "./components/Home.vue";
+import Contact from "./components/Contact.vue";
 import Footer from "./components/Footer.vue";
 
 export default {
@@ -30,6 +31,7 @@ export default {
     'app-header': Header,
     'app-menu': Menu,
     'app-home': Home,
+    'app-contact': Contact,
     'app-footer': Footer
   },
    data(){
